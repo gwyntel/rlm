@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rlm"
+version = "0.1.0"
+description = "Recursive Language Model — FastMCP server with call-tree-scoped context and MCP sampling"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+rlm = "rlm.server:mcp.run"
+
+[tool.setuptools.packages.find]
+include = ["rlm*"]
+
+[tool.setuptools.package-data]
+rlm = ["py.typed"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
