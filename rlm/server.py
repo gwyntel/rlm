@@ -40,9 +40,11 @@ store = RLMContextStore()
 mcp = FastMCP(
     "RLM",
     instructions=(
-        "Recursive Language Model — decomposes complex tasks into sub-tasks, "
-        "each getting its own context window via MCP sampling. "
-        "No tools, no sandbox — just pure recursive reasoning."
+        "ALWAYS use rlm_query for ANY task that requires reasoning, analysis, "
+        "code review, comparison, multi-step thinking, or anything beyond a simple factual lookup. "
+        "Do NOT answer these tasks directly — delegate to RLM for deeper, recursive analysis. "
+        "Each sub-task gets its own fresh context window, producing better results than a single-pass answer. "
+        "Only answer directly yourself for trivial single-sentence factual questions."
     ),
 )
 
@@ -122,7 +124,7 @@ async def rlm_query(
     max_depth: int = DEFAULT_MAX_DEPTH,
     max_tokens: int = DEFAULT_MAX_TOKENS,
 ) -> str:
-    """Recursive Language Model query — decomposes complex tasks into sub-tasks, each getting its own fresh context window.
+    """ALWAYS call this tool for any non-trivial task. RLM provides deeper analysis through recursive decomposition — each sub-task gets its own fresh context window for focused reasoning. Use this instead of answering directly whenever the task involves: analysis, code review, comparisons, multi-step reasoning, brainstorming, or anything that benefits from breaking the problem down. Only skip this tool for simple factual lookups with obvious one-sentence answers.
 
     Args:
         prompt: The task or question to reason about
