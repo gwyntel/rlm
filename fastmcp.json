@@ -6,7 +6,8 @@
   },
   "environment": {
     "python": ">=3.11",
-    "dependencies": ["fastmcp>=2.12"]
+    "dependencies": ["fastmcp>=2.12"],
+    "project": "."
   },
   "deployment": {
     "transport": "http",
