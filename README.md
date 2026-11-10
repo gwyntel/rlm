@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/gwyntel/rlm)
+
 # RLM — Recursive Language Model
 
 A Recursive Language Model server built on [FastMCP](https://gofastmcp.com) with [MCP sampling](https://modelcontextprotocol.io/specification/2025-11-25/server/sampling).
